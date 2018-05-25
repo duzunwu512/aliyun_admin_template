@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>EasyBootstrapTabs Demo</title>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap3/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/test.css" />
+		<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+			<!-- Ionicons -->
+		<link href="https://cdn.bootcss.com/ionicons/4.0.0-5/css/ionicons.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<div class="container-fluid">
+
+			<div class="page-header">
+				<h1>EasyBootstrapTabs <small>Support multi-tab, close button, contextmenu to close, refresh and js api</small></h1>
+			</div <div class="row">
+
+			<div class="col-md-2 col-lg-2 col-sm-4 col-xs-4">
+				<div class="list-group">
+					<a href="#" class="list-group-item active">
+						Dashboard
+					</a>
+					<a id="addtabbtn" onclick="" class="list-group-item">adddd</a>
+				</div>
+			</div>
+			<div class="col-md-10 col-lg-10 col-sm-8 col-xs-8">
+				
+				<div class="content-tabs">
+					<button class="roll-nav roll-left tabLeft" onclick="scrollTabLeft()">
+						<i class="fa fa-backward"></i>
+					</button>
+					
+					
+					
+					<nav class="nav nav-tabs page-tabs menuTabs" id="tab-menu">
+						<div class="page-tabs-content" style="margin-left: 0px;">
+							<a href="#home1" class="active menu_tab inittab" id="home" data-toggle="tab" data-ref='home1'>Home1</a>
+						</div>
+						
+						
+					</nav>
+					<button class="roll-nav roll-right tabRight" onclick="scrollTabRight()">
+						<i class="fa fa-forward"></i>
+					</button>
+					<div class="btn-group roll-nav roll-right">
+						<button class="dropdown tabClose" data-toggle="dropdown">
+							<i class="fa fa-caret-down"></i>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right" id="tab_list">
+							<li><a class="tabReload" href="javascript:refreshTab();">Home1</a></li>
+						</ul>
+					</div>
+					<button class="roll-nav roll-right fullscreen" onclick="App.handleFullScreen()"><i class="fa fa-arrows-alt"></i></button>
+				</div>
+				 <div class="content-iframe " style="background-color: #ffffff; ">
+					<div class="tab-content" id="tab-content">
+						<div class="tab-pane fade in active" id="home1">
+							<p>菜鸟教程是一个提供最新的web技术站点，111111111</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		</div>
+
+		<script src="lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/bootstrap3/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/jquery.contextify.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/test.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

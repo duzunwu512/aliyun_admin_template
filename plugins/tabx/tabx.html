@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>TabX Demo</title>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap3/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/tabx.css" />
+		<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+			<!-- Ionicons -->
+		<link href="https://cdn.bootcss.com/ionicons/4.0.0-5/css/ionicons.min.css" rel="stylesheet">
+	</head>
+
+	<body style="margin: 0; padding: 0;">
+
+		<div class="container-fluid" >
+
+			<div class="page-header" style='padding-bottom:0px;border-bottom:none; margin: 0;'>
+				<h1 style="    margin-top: 0;    margin-bottom: 0;    height: 50px;">TabX <small>Support multi-tab, close button, contextmenu to close, refresh and js api</small></h1>
+			</div> 
+			<div class="row">
+				<div class="col-md-2 col-lg-2 col-sm-4 col-xs-4">
+					<div class="list-group">
+						<a href="#" class="list-group-item active">
+							Dashboard
+						</a>
+						<a id="addtabbtn" onclick="" class="list-group-item">adddd</a>
+						<a id="longtabbtn" onclick="" class="list-group-item">long btn</a>
+					</div>
+				</div>
+				<div class="col-md-10 col-lg-10 col-sm-8 col-xs-8 tab-container">				
+				</div>
+			</div>
+		</div>
+		<script src="lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/bootstrap3/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/jquery.contextify.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tabx.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+
+
+				var getViewPort=function () {
+		            var e = window,
+		                a = 'inner';
+		            if (!('innerWidth' in window)) {
+		                a = 'client';
+		                e = document.documentElement || document.body;
+		            }
+
+		            return {
+		                width: e[a + 'Width'],
+		                height: e[a + 'Height']
+		            };
+		        }
+
+				var tab = $('.tab-container').tabx({data: [{
+			            id: 'home',
+			            text: '百度一下',
+			            url: "tab_long.html",
+			        }, {
+			            id: 'admineap',
+			            text: 'AdminEAP',
+			            url: "tab_long.html",
+			            closeable: true
+			        }, {
+			            id: 'edit',
+			            text: '编辑人员',
+			            url: "tab_content.html",
+			            closeable: true
+			        }],
+			        showIndex: 0,
+			        loadAll: false,
+			        /*loading: function(){
+			        	console.log("before loading..................");
+			        },
+			        loaded:function(){
+			        	console.log("loadeddddd...............................");
+			        },*/
+			        iframeHeight:getViewPort().height-$(".page-header").outerHeight(true)
+			        //iframeHeight:document.body.clientHeight-$(".page-header").outerHeight(true)
+			    });
+
+				$("#addtabbtn").on('click', function(){
+					tab.addTab({text:$(this).html(), url:'www.baidu.com', closeable:true});	
+					
+				});
+
+				$("#longtabbtn").on('click', function(){
+					tab.addTab({text:$(this).html(), url:'tab_long.html', closeable:true});	
+					
+				});
+
+//				$('iframe').iframeHeight();
+				
+			});
+		</script>
+	</body>
+
+</html>
